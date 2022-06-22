@@ -1,0 +1,35 @@
+@import "./styles/styles.scss";
+
+#app {
+	--bg-primary: #{$white};
+	--bg-secondary: #{$blue-50};
+	--bg-main: #{$blue-200};
+	--bg-logo: #{$blue-800};
+	--bg-hover: #{$blue-100};
+
+	--text-primary: #{$blue-400};
+	--text-secondary: #{$blue-300};
+	--text-high-contrast: #{$gray-900};
+	--text-logo: #{$white};
+	--text-hover: #{$blue-800};
+
+	@include flex();
+	width: 100vw;
+	min-height: 100vh;
+	background-color: var(--bg-main);
+	transition: 250ms;
+
+	&.dark {
+		--bg-primary: #{$gray-900};
+		--bg-secondary: #{$gray-500};
+		--bg-main: #{$gray-300};
+		--bg-logo: #{$white};
+		--bg-hover: #{$gray-500};
+
+		--text-primary: #{$gray-100};
+		--text-secondary: #{$gray-200};
+		--text-high-contrast: #{$gray-50};
+		--text-logo: #{$blue-800};
+		--text-hover: #{$white};
+	}
+}

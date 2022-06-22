@@ -1,0 +1,66 @@
+@import "../../styles/styles.scss";
+
+@keyframes collapse-header {
+	100% {
+		width: 3.6rem;
+	}
+}
+
+#sidebar {
+	@include flex(column);
+	width: 22rem;
+	padding: 2rem 2rem 1.5rem 2rem;
+	background-color: var(--bg-primary);
+	transition: all ease-in 250ms;
+	&.collapsed {
+		width: 8rem;
+		padding: 2rem 1.5rem 1.5rem 1.5rem;
+		align-items: center;
+		header {
+			animation: collapse-header 250ms ease-out 250ms 1 normal forwards;
+		}
+	}
+	header {
+		position: relative;
+		width: 100%;
+		margin-bottom: 2rem;
+		.sidebar__logo {
+			@include flex($justify: center, $align: center);
+			@include square(3.6rem, 0.8rem);
+			background-color: var(--bg-logo);
+			color: var(--text-logo);
+			font-size: 1.1rem;
+			transition: all 250ms;
+		}
+		.toggle {
+			position: absolute;
+			top: 0;
+			right: -2rem;
+			transform: translate(50%, 50%);
+			@include flex($align: center, $justify: center);
+			@include square(2rem, 0.6rem);
+			background-color: var(--bg-secondary);
+			color: var(--text-primary);
+			box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.3);
+			font-size: 1.2rem;
+			transition: all 250ms;
+			svg {
+				transition: transform 250ms 300ms;
+			}
+		}
+	}
+	#toggle-dark-mode {
+		@include flex($align: center);
+		margin-top: auto;
+		padding: 0.8rem 1rem;
+		border-radius: 0.8rem;
+		color: var(--text-primary);
+		font-size: 1.4rem;
+		font-weight: 500;
+		transition: 250ms;
+		&:hover {
+			background-color: var(--bg-hover);
+			color: var(--text-hover);
+		}
+	}
+}
